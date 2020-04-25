@@ -462,8 +462,7 @@ datetime type.")
                     version ".tar.xz"))
               (sha256
                (base32
-                "0ifnlb0mc8qc2kb5042pbz0ns6rwcb7201di8wyrsphl0yhnhxiv"))
-              (patches (search-patches "datefudge-gettimeofday.patch"))))
+                "0ifnlb0mc8qc2kb5042pbz0ns6rwcb7201di8wyrsphl0yhnhxiv"))))
     (build-system gnu-build-system)
     (arguments
      `(#:test-target "test"
@@ -478,6 +477,15 @@ datetime type.")
                (("VERSION := \\$\\(shell dpkg-parsechangelog .*")
                 (string-append "VERSION = " ,version)))
              #t))
+         ,@(if (string-prefix? "powerpc" (or (%current-target-system)
+                                             (%current-system)))
+             '()
+             '((add-after 'unpack 'patch-for-glibc-2.31
+                 (lambda _
+                   (substitute* "datefudge.c"
+                     (("int gettimeofday\\(struct timeval \\*x, struct timezone \\*y")
+                      "int gettimeofday(struct timeval *restrict x, void *restrict y"))
+                   #t))))
          (delete 'configure))))
     (native-inputs
      `(("perl" ,perl)))
