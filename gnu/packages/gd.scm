@@ -3,7 +3,7 @@
 ;;; Copyright © 2015, 2016 Mark H Weaver <mhw@netris.org>
 ;;; Copyright © 2015 Eric Bavier <bavier@member.fsf.org>
 ;;; Copyright © 2016, 2017 Leo Famulari <leo@famulari.name>
-;;; Copyright © 2017 Efraim Flashner <efraim@flashner.co.il>
+;;; Copyright © 2017, 2020 Efraim Flashner <efraim@flashner.co.il>
 ;;; Copyright © 2017 Marius Bakke <mbakke@fastmail.com>
 ;;; Copyright © 2018, 2019, 2020 Tobias Geerinckx-Rice <me@tobias.gr>
 ;;;
@@ -51,8 +51,16 @@
              (sha256
               (base32
                "0n5czhxzinvjvmhkf5l9fwjdx5ip69k5k7pj6zwb6zs1k9dibngc"))
-             (patches (search-patches "gd-fix-tests-on-i686.patch"
-                                      "gd-brect-bounds.patch"))))
+             (patches (cons
+                        (origin
+                          (method url-fetch)
+                          (uri "https://github.com/libgd/libgd/commit/ec0b4397698bd358557d33641aac4beb1912f43b.patch")
+                          (file-name "gd-fix-gdimagestring16-test.patch")
+                          (sha256
+                           (base32
+                            "0flznj0fgr7hychchm0xjx9l41jldbjvp1a1s79wvsywhinzf7ag")))
+                        (search-patches "gd-fix-tests-on-i686.patch"
+                                        "gd-brect-bounds.patch")))))
     (build-system gnu-build-system)
     (arguments
       ;; As recommended by github.com/libgd/libgd/issues/278 to fix rounding
