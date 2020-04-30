@@ -6,7 +6,7 @@
 ;;; Copyright © 2016 Nikita <nikita@n0.is>
 ;;; Copyright © 2016, 2017, 2018, 2020 Ricardo Wurmus <rekado@elephly.net>
 ;;; Copyright © 2016 David Thompson <davet@gnu.org>
-;;; Copyright © 2017, 2018, 2019 Efraim Flashner <efraim@flashner.co.il>
+;;; Copyright © 2017, 2018, 2019, 2020 Efraim Flashner <efraim@flashner.co.il>
 ;;; Copyright © 2017 Arun Isaac <arunisaac@systemreboot.net>
 ;;; Copyright © 2017, 2018, 2019 Rutger Helling <rhelling@mykolab.com>
 ;;; Copyright © 2018, 2019, 2020 Tobias Geerinckx-Rice <me@tobias.gr>
@@ -269,7 +269,7 @@ also known as DXTn or DXTC) for Mesa.")
         ("libxrandr" ,libxrandr)
         ("libxvmc" ,libxvmc)
         ,@(match (%current-system)
-            ((or "x86_64-linux" "i686-linux")
+            ((or "x86_64-linux" "i686-linux" "powerpc-linux")
              ;; Note: update the 'clang' input of mesa-opencl when bumping this.
              `(("llvm" ,llvm-10)))
             (_
@@ -281,7 +281,7 @@ also known as DXTn or DXTC) for Mesa.")
         ("flex" ,flex)
         ("gettext" ,gettext-minimal)
         ,@(match (%current-system)
-            ((or "x86_64-linux" "i686-linux")
+            ((or "x86_64-linux" "i686-linux" "powerpc-linux")
              `(("glslang" ,glslang)))
             (_
              `()))
@@ -296,6 +296,8 @@ also known as DXTn or DXTC) for Mesa.")
              ((or "armhf-linux" "aarch64-linux")
               ;; TODO: Fix svga driver for aarch64 and armhf.
               '("-Dgallium-drivers=etnaviv,freedreno,kmsro,lima,nouveau,panfrost,r300,r600,swrast,tegra,v3d,vc4,virgl"))
+             ("powerpc-linux"
+              '("-Dgallium-drivers=nouveau,r300,r600,radeonsi,swrast,virgl"))
              (_
               '("-Dgallium-drivers=iris,nouveau,r300,r600,radeonsi,svga,swrast,virgl")))
          ;; Enable various optional features.  TODO: opencl requires libclc,
@@ -316,12 +318,14 @@ also known as DXTn or DXTC) for Mesa.")
          ,@(match (%current-system)
              ((or "i686-linux" "x86_64-linux")
               '("-Dvulkan-drivers=intel,amd"))
+             ("powerpc-linux"   ; No default on this platform.
+              '("-Dvulkan-drivers=amd"))
              (_
               '("-Dvulkan-drivers=auto")))
 
          ;; Enable the Vulkan overlay layer on i686-linux and x86-64-linux.
          ,@(match (%current-system)
-             ((or "x86_64-linux" "i686-linux")
+             ((or "x86_64-linux" "i686-linux" "powerpc-linux")
               '("-Dvulkan-overlay-layer=true"))
              (_
               '()))
@@ -335,12 +339,20 @@ also known as DXTn or DXTC) for Mesa.")
              ((or "x86_64-linux" "i686-linux")
               '("-Ddri-drivers=i915,i965,nouveau,r200,r100"
                 "-Dllvm=true"))         ; default is x86/x86_64 only
+             ("powerpc-linux"
+              '("-Ddri-drivers=nouveau,r200,r100"
+                "-Dllvm=true"))
              (_
               '("-Ddri-drivers=nouveau,r200,r100"))))
 
        ;; XXX: 'debugoptimized' causes LTO link failures on some drivers.  The
        ;; documentation recommends using 'release' for performance anyway.
        #:build-type "release"
+
+       ;; The llvm-based tests are flakey on non-Intel hardware.
+       #:tests? ,(if (string=? "powerpc-linux" (or (%current-system)
+                                                   (%current-target-system)))
+                   '#f '#t)
 
        #:modules ((ice-9 match)
                   (srfi srfi-1)
