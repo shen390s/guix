@@ -1,7 +1,7 @@
 ;;; GNU Guix --- Functional package management for GNU
 ;;; Copyright © 2013, 2014, 2015, 2016, 2017, 2018, 2019 Ludovic Courtès <ludo@gnu.org>
 ;;; Copyright © 2014, 2015, 2016, 2017, 2018, 2019 Mark H Weaver <mhw@netris.org>
-;;; Copyright © 2016, 2017, 2018, 2019 Efraim Flashner <efraim@flashner.co.il>
+;;; Copyright © 2016, 2017, 2018, 2019, 2020 Efraim Flashner <efraim@flashner.co.il>
 ;;; Copyright © 2017, 2018 Tobias Geerinckx-Rice <me@tobias.gr>
 ;;; Copyright © 2020 Marius Bakke <mbakke@fastmail.com>
 ;;; Copyright © 2020 Jonathan Brielmaier <jonathan.brielmaier@web.de>
@@ -99,6 +99,10 @@ in the Mozilla clients.")
     (outputs '("out" "bin"))
     (arguments
      `(#:parallel-build? #f ; not supported
+       ;; Tests on powerpc-linux take forever and fail sporatically.
+       #:tests? ,(if (string=? "powerpc-linux" (or (%current-system)
+                                                   (%current-target-system)))
+                   '#f '#t)
        #:make-flags
        (let* ((out (assoc-ref %outputs "out"))
               (nspr (string-append (assoc-ref %build-inputs "nspr")))
@@ -128,18 +132,21 @@ in the Mozilla clients.")
                   '()))
              #t))
          (replace 'check
-           (lambda _
-             ;; Use 127.0.0.1 instead of $HOST.$DOMSUF as HOSTADDR for testing.
-             ;; The later requires a working DNS or /etc/hosts.
-             (setenv "DOMSUF" "localdomain")
-             (setenv "USE_IP" "TRUE")
-             (setenv "IP_ADDRESS" "127.0.0.1")
+           (lambda* (#:key tests? #:allow-other-keys)
+             (if tests?
+               (begin
+                 ;; Use 127.0.0.1 instead of $HOST.$DOMSUF as HOSTADDR for testing.
+                 ;; The later requires a working DNS or /etc/hosts.
+                 (setenv "DOMSUF" "localdomain")
+                 (setenv "USE_IP" "TRUE")
+                 (setenv "IP_ADDRESS" "127.0.0.1")
 
-             ;; The "PayPalEE.cert" certificate expires every six months,
-             ;; leading to test failures:
-             ;; <https://bugzilla.mozilla.org/show_bug.cgi?id=609734>.  To
-             ;; work around that, set the time to roughly the release date.
-             (invoke "faketime" "2020-10-01" "./nss/tests/all.sh")))
+                 ;; The "PayPalEE.cert" certificate expires every six months,
+                 ;; leading to test failures:
+                 ;; <https://bugzilla.mozilla.org/show_bug.cgi?id=609734>.  To
+                 ;; work around that, set the time to roughly the release date.
+                 (invoke "faketime" "2020-02-01" "./nss/tests/all.sh"))
+               #t)))
          (replace 'install
            (lambda* (#:key outputs #:allow-other-keys)
              (let* ((out (assoc-ref outputs "out"))
