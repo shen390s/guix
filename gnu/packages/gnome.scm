@@ -3120,7 +3120,7 @@ library.")
         ("rust-rgb" ,rust-rgb-0.8)
         ("rust-regex" ,rust-regex-1)
         ("rust-selectors" ,rust-selectors-0.22)
-        ("rust-url" ,rust-url-2.1)
+        ("rust-url" ,rust-url-2)
         ("rust-xml5ever" ,rust-xml5ever-0.16))
        #:cargo-development-inputs
        (("rust-cairo-rs" ,rust-cairo-rs-0.8)
