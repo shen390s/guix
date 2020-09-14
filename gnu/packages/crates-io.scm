@@ -560,9 +560,9 @@ text or blue underlined text, on ANSI terminals.")
      `(#:skip-build? #t
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures-0.3)
-        ("rust-trybuild" ,rust-trybuild-1.0))))
         ("rust-rustversion" ,rust-rustversion-1)
         ("rust-thiserror" ,rust-thiserror-1)
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/dtolnay/anyhow")
     (synopsis "Flexible concrete Error type")
     (description "This package provides a flexible concrete Error type built on
@@ -17111,8 +17111,8 @@ synchronization primitives.")
        (("rust-paste-impl" ,rust-paste-impl-0.1)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))
        #:cargo-development-inputs
-        ("rust-trybuild" ,rust-trybuild-1.0))))
        (("rust-rustversion" ,rust-rustversion-1)
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/dtolnay/paste")
     (synopsis "Macros for all your token pasting needs")
     (description
@@ -17312,7 +17312,7 @@ the @code{take_while} predicate returned false after dropping the @code{by_ref}.
        (("rust-peg-macros" ,rust-peg-macros-0.6)
         ("rust-peg-runtime" ,rust-peg-runtime-0.6))
        #:cargo-development-inputs
-       (("rust-trybuild" ,rust-trybuild-1.0))))
+       (("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/kevinmehall/rust-peg")
     (synopsis "Simple Parsing Expression Grammar (PEG) parser generator")
     (description
@@ -18326,8 +18326,8 @@ interactive applications.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-        ("rust-trybuild" ,rust-trybuild-1.0))))
        (("rust-rustversion" ,rust-rustversion-1)
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/taiki-e/pin-project-lite")
     (synopsis "Lightweight version of pin-project written with declarative
 macros")
@@ -18971,7 +18971,7 @@ formatted tables in terminal.")
        (("rust-quote" ,rust-quote-1)
         ("rust-rustversion" ,rust-rustversion-1)
         ("rust-syn" ,rust-syn-1)
-        ("rust-trybuild" ,rust-trybuild-1.0)
+        ("rust-trybuild" ,rust-trybuild-1)
         ("rust-demo-hack" ,rust-demo-hack-0.0)
         ("rust-demo-hack-impl" ,rust-demo-hack-impl-0.0))))
     (home-page "https://github.com/dtolnay/proc-macro-hack")
@@ -19644,8 +19644,8 @@ integers, floats, tuples, booleans, lists, strings, options and results.")
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2-1))
        #:cargo-development-inputs
-        ("rust-trybuild" ,rust-trybuild-1.0))))
        (("rust-rustversion" ,rust-rustversion-1)
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/dtolnay/quote")
     (synopsis "Quasi-quoting macro quote!(...)")
     (description "Quasi-quoting macro quote!(...)")
@@ -20718,8 +20718,8 @@ functionality.")
      `(#:cargo-inputs
        (("rust-ref-cast-impl" ,rust-ref-cast-impl-1.0))
        #:cargo-development-inputs
-        ("rust-trybuild" ,rust-trybuild-1.0))))
        (("rust-rustversion" ,rust-rustversion-1)
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/dtolnay/ref-cast")
     (synopsis "Safely cast &T to &U")
     (description
@@ -20745,7 +20745,7 @@ functionality.")
        (("rust-ref-cast-impl" ,rust-ref-cast-impl-0.2))
        #:cargo-development-inputs
        (("rust-rustversion" ,rust-rustversion-0.1)
-        ("rust-trybuild" ,rust-trybuild-1.0))))
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/dtolnay/ref-cast")
     (synopsis "Safely cast &T to &U")
     (description
@@ -23393,7 +23393,7 @@ for the serde framework.")
         ("rust-serde-bytes" ,rust-serde-bytes-0.11)
         ("rust-serde-derive" ,rust-serde-derive-1)
         ;("rust-serde-stacker" ,rust-serde-stacker-0.1)
-        ("rust-trybuild" ,rust-trybuild-1.0))))
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/serde-rs/json")
     (synopsis "JSON serialization file format")
     (description
@@ -26529,8 +26529,8 @@ handle Unicode characters correctly.")
        #:cargo-development-inputs
        (("rust-anyhow" ,rust-anyhow-1.0)
         ("rust-ref-cast" ,rust-ref-cast-1.0)
-        ("rust-trybuild" ,rust-trybuild-1.0))))
         ("rust-rustversion" ,rust-rustversion-1)
+        ("rust-trybuild" ,rust-trybuild-1))))
     (home-page "https://github.com/dtolnay/thiserror")
     (synopsis "derive(Error)")
     (description "This package provides @code{derive(Error)} in Rust.")
@@ -27829,7 +27829,7 @@ serializing Rust str")
      "This package provides a lightweight atomic lock.")
     (license license:expat)))
 
-(define-public rust-trybuild-1.0
+(define-public rust-trybuild-1
   (package
     (name "rust-trybuild")
     (version "1.0.23")
@@ -29236,7 +29236,7 @@ in Rust.")
         ("rust-wasm-bindgen-macro-support"
          ,rust-wasm-bindgen-macro-support-0.2))
        #:cargo-development-inputs
-       (("rust-trybuild" ,rust-trybuild-1.0)
+       (("rust-trybuild" ,rust-trybuild-1)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-futures" ,rust-wasm-bindgen-futures-0.4))))
     (home-page "https://rustwasm.github.io/wasm-bindgen/")
