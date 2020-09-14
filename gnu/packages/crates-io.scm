@@ -1290,7 +1290,7 @@ trace (backtrace) at runtime in a Rust program.")
          "13k6bvd3n6dm7jqn9x918w65dd9xhx454bqphbnv0bkd6n9dj98b"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))
+       (("rust-byteorder" ,rust-byteorder-1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-rand" ,rust-rand-0.4))))))
@@ -1309,7 +1309,7 @@ trace (backtrace) at runtime in a Rust program.")
         (base32 "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-safemem" ,rust-safemem-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
@@ -1403,7 +1403,7 @@ tracebacks.")
     (arguments
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1)
-        ("rust-byteorder" ,rust-byteorder-1.3))
+        ("rust-byteorder" ,rust-byteorder-1))
        #:cargo-development-inputs
        (("rust-serde-bytes" ,rust-serde-bytes-0.11)
         ("rust-serde-derive" ,rust-serde-derive-1))))
@@ -1999,9 +1999,9 @@ BLAKE2bp hash functions.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))
+       (("rust-byteorder" ,rust-byteorder-1))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-hex" ,rust-hex-0.3))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis "Iterator over simple binary blob storage")
@@ -2075,7 +2075,7 @@ extension of blocks.")
      `(#:cargo-inputs
        (("rust-block-padding" ,rust-block-padding-0.1)
         ("rust-byte-tools" ,rust-byte-tools-0.3)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-generic-array" ,rust-generic-array-0.14))))))
 
 (define-public rust-block-buffer-0.7
@@ -2096,7 +2096,7 @@ extension of blocks.")
      `(#:cargo-inputs
        (("rust-block-padding" ,rust-block-padding-0.1)
         ("rust-byte-tools" ,rust-byte-tools-0.3)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-generic-array" ,rust-generic-array-0.12))))))
 
 (define-public rust-block-padding-0.2
@@ -2395,7 +2395,7 @@ in a byte slice, fast.")
     (license
       (list license:zlib license:asl2.0 license:expat))))
 
-(define-public rust-byteorder-1.3
+(define-public rust-byteorder-1
   (package
     (name "rust-byteorder")
     (version "1.3.4")
@@ -2425,7 +2425,7 @@ little-endian.")
 
 (define-public rust-byteorder-0.5
   (package
-    (inherit rust-byteorder-1.3)
+    (inherit rust-byteorder-1)
     (name "rust-byteorder")
     (version "0.5.3")
     (source
@@ -2482,8 +2482,8 @@ little-endian.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-either" ,rust-either-1.5)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-serde" ,rust-serde-1))
        #:cargo-development-inputs
@@ -2596,7 +2596,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-ppv-lite86" ,rust-ppv-lite86-0.2)
         ("rust-stream-cipher" ,rust-stream-cipher-0.3))
@@ -4441,7 +4441,7 @@ to @code{is_x86_feature_detected}.")
          "13pv09z4ryp70qyzablkibwa2mh6c2852qq1sjr9wjigvwnj3ybn"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-cast" ,rust-cast-0.2)
         ("rust-itertools" ,rust-itertools-0.8))
        #:cargo-development-inputs
@@ -5413,7 +5413,7 @@ and arithmetic.")
      `(#:tests? #f      ; not all test files included
        #:cargo-inputs
        (("rust-adler32" ,rust-adler32-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-gzip-header" ,rust-gzip-header-0.3))
        #:cargo-development-inputs
        (("rust-miniz-oxide" ,rust-miniz-oxide-0.3))))
@@ -5440,7 +5440,7 @@ and arithmetic.")
     (arguments
      `(#:cargo-inputs
        (("rust-adler32" ,rust-adler32-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-gzip-header" ,rust-gzip-header-0.3)
         ("rust-flate2" ,rust-flate2-1.0))))))
 
@@ -7644,7 +7644,7 @@ implementation that is more efficient for smaller hash keys.")
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-dwrote" ,rust-dwrote-0.9)
         ("rust-dirs" ,rust-dirs-1.0)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-core-text" ,rust-core-text-13)
         ("rust-walkdir" ,rust-walkdir-2))))
@@ -8657,7 +8657,7 @@ library.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))
+       (("rust-byteorder" ,rust-byteorder-1))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv-1)
         ("rust-seahash" ,rust-seahash-3.0))))
@@ -9238,7 +9238,7 @@ retrieving random data from system source.")
          ,rust-stable-deref-trait-1.1)
         ("rust-smallvec" ,rust-smallvec-1)
         ("rust-indexmap" ,rust-indexmap-1)
-        ("rust-byteorder" ,rust-byteorder-1.3))))
+        ("rust-byteorder" ,rust-byteorder-1))))
     (home-page "https://github.com/gimli-rs/gimli")
     (synopsis "Library for reading and writing the DWARF debugging format")
     (description
@@ -9262,7 +9262,7 @@ retrieving random data from system source.")
     (arguments
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
         ("rust-indexmap" ,rust-indexmap-1)
         ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))
@@ -10402,7 +10402,7 @@ of gzip files based on the gzip header implementation in the @code{flate2} crate
     (arguments
      `(#:skip-build? #t ;; TODO missing indirect dependency
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-bytes" ,rust-bytes-0.4)
         ("rust-fnv" ,rust-fnv-1)
         ("rust-futures" ,rust-futures-0.1)
@@ -11342,7 +11342,7 @@ ignore files such as .gitignore against file paths.")
      `(#:tests? #f      ; Some test images are missing from the release.
        #:cargo-inputs
        (("rust-bytemuck" ,rust-bytemuck-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-gif" ,rust-gif-0.10)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder-0.1)
         ("rust-num-iter" ,rust-num-iter-0.1)
@@ -11381,7 +11381,7 @@ for the most common image formats.")
     (arguments
      `(#:tests? #f      ; Some test images are missing from the release.
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-gif" ,rust-gif-0.10)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder-0.1)
         ("rust-num-iter" ,rust-num-iter-0.1)
@@ -11412,7 +11412,7 @@ for the most common image formats.")
          "1sv534xp8yyn7jj0q6yn2bgng1350f962g81sv8v7c6pgi31wdrm"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-gif" ,rust-gif-0.10)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder-0.1)
         ("rust-lzw" ,rust-lzw-0.10)
@@ -11443,7 +11443,7 @@ for the most common image formats.")
          "01058n0jcw25pq5shn7lkvywv8c28xsxb3nwwyb4r16ijm1mnrj4"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-gif" ,rust-gif-0.10)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder-0.1)
         ("rust-lzw" ,rust-lzw-0.10)
@@ -12143,7 +12143,7 @@ primitives to an @code{io::Write}.")
     (arguments
      `(#:tests? #f      ; Some test files missing.
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-rayon" ,rust-rayon-1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.3)
@@ -13891,7 +13891,7 @@ compression function.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-parking-lot" ,rust-parking-lot-0.9)
         ("rust-rustc-hash" ,rust-rustc-hash-1.1))))
@@ -17197,7 +17197,7 @@ in pure Rust.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64-0.9)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-crypto-mac" ,rust-crypto-mac-0.7)
         ("rust-hmac" ,rust-hmac-0.7)
         ("rust-rand" ,rust-rand-0.5)
@@ -18403,7 +18403,7 @@ used in Cargo build scripts.")
         ("rust-xml-rs" ,rust-xml-rs-0.8)
         ("rust-serde" ,rust-serde-1)
         ("rust-humantime" ,rust-humantime-1)
-        ("rust-byteorder" ,rust-byteorder-1.3))))
+        ("rust-byteorder" ,rust-byteorder-1))))
     (home-page "https://github.com/ebarnard/rust-plist/")
     (synopsis "Rusty plist parser")
     (description
@@ -19155,7 +19155,7 @@ macro use case.")
      `(#:cargo-inputs
        (("rust-bit-set" ,rust-bit-set-0.5)
         ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-quick-error" ,rust-quick-error-1.2)
@@ -19195,7 +19195,7 @@ macro use case.")
        #:cargo-inputs
        (("rust-bit-set" ,rust-bit-set-0.5)
         ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-quick-error" ,rust-quick-error-1.2)
@@ -20339,7 +20339,7 @@ random number generators.")
          "07w3qgrac8r356lz5vqff42rly6yd9vs3g5lx5pbn13rcmb05rqb"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1))
        #:cargo-development-inputs
@@ -20362,7 +20362,7 @@ random number generators.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-rand-core" ,rust-rand-core-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.6))))))
@@ -20897,7 +20897,7 @@ uses finite automata and guarantees linear time matching on all inputs.")
      `(#:skip-build? #t
        #:cargo-inputs
        (("rust-fst" ,rust-fst-0.4)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6))
        #:cargo-development-inputs
        (("rust-bstr" ,rust-bstr-0.2)
@@ -21322,7 +21322,7 @@ console applications.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-csv" ,rust-csv-1.1)
         ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
@@ -22670,7 +22670,7 @@ with one of the implemented strategies.")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64-0.9)
         ("rust-byte-tools" ,rust-byte-tools-0.3)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-hmac" ,rust-hmac-0.7)
         ("rust-pbkdf2" ,rust-pbkdf2-0.3)
         ("rust-rand" ,rust-rand-0.5)
@@ -22722,7 +22722,7 @@ endian-aware Read/Write traits for byte buffers.")
        (("rust-scroll-derive" ,rust-scroll-derive-0.9)
         ("rust-rustc-version" ,rust-rustc-version-0.2))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-rayon" ,rust-rayon-1))))
     (home-page "https://github.com/m4b/scroll")
     (synopsis "Read/Write traits for byte buffers")
@@ -23253,7 +23253,7 @@ proven statistical guarantees.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-half" ,rust-half-1.3)
         ("rust-serde" ,rust-serde-1))
        #:cargo-development-inputs
@@ -24514,7 +24514,7 @@ stack.")
         ("rust-wayland-client" ,rust-wayland-client-0.23)
         ("rust-wayland-protocols" ,rust-wayland-protocols-0.23))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-image" ,rust-image-0.21)
         ("rust-wayland-client" ,rust-wayland-client-0.23))))
     (home-page "https://github.com/smithay/client-toolkit")
@@ -24549,7 +24549,7 @@ stack.")
         ("rust-wayland-commons" ,rust-wayland-commons-0.21)
         ("rust-wayland-protocols" ,rust-wayland-protocols-0.21))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-image" ,rust-image-0.20)
         ("rust-wayland-client" ,rust-wayland-client-0.21))))))
 
@@ -24873,7 +24873,7 @@ are met.")
     (arguments
      `(#:tests? #f      ; tests not included in release
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-libm" ,rust-libm-0.2))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx-0.3))))
@@ -25864,7 +25864,7 @@ syntax extension expansion.")
      `(#:skip-build? #t
        #:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-byteorder" ,rust-byteorder-1)
         ("rust-failure" ,rust-failure-0.1)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-walkdir" ,rust-walkdir-2))))
@@ -25891,7 +25891,7 @@ syntax extension expansion.")
     (arguments
      `(#:skip-build? #t ; Unsupported on Linux.
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-errno" ,rust-errno-0.2)
         ("rust-libc" ,rust-libc-0.2))))))
 
@@ -26174,7 +26174,7 @@ directories.")
          "0hkgjrfisj6zjwz525639pmsvzhlc48a0h65nw87qrdp6jihdlgd"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-dirs" ,rust-dirs-1.0)
         ("rust-winapi" ,rust-winapi-0.3))))))
 
@@ -26427,7 +26427,7 @@ return values to @code{std::io::Result} to indicate success or failure.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))))
+       (("rust-byteorder" ,rust-byteorder-1))))
     (home-page "https://github.com/luser/rust-test-assembler")
     (synopsis "Build complex binary streams")
     (description
@@ -26705,7 +26705,7 @@ fixed set of worker threads.")
     (arguments
      `(#:tests? #f      ; not all test files included
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-lzw" ,rust-lzw-0.10)
         ("rust-miniz-oxide" ,rust-miniz-oxide-0.3))))
     (home-page "https://github.com/image-rs/image-tiff")
@@ -26732,7 +26732,7 @@ fixed set of worker threads.")
     (arguments
      `(#:tests? #f      ; Tests images not included with release.
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-lzw" ,rust-lzw-0.10)
         ("rust-num-derive" ,rust-num-derive-0.2)
         ("rust-num-traits" ,rust-num-traits-0.2))
@@ -26755,7 +26755,7 @@ fixed set of worker threads.")
          "1kn7psgpacns337vvqh272rkqwnakmjd51rc7ygwnc03ibr38j0y"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-lzw" ,rust-lzw-0.10)
         ("rust-num-derive" ,rust-num-derive-0.2)
         ("rust-num-traits" ,rust-num-traits-0.2))))))
@@ -28649,7 +28649,7 @@ Unix users and groups.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-md5" ,rust-md5-0.6)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-serde" ,rust-serde-1)
@@ -29495,7 +29495,7 @@ attribute that is not in the shared backend crate.")
         ("rust-wayland-sys" ,rust-wayland-sys-0.23)
         ("rust-wayland-scanner" ,rust-wayland-scanner-0.23))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-tempfile" ,rust-tempfile-3))))
     (home-page "https://github.com/smithay/wayland-rs")
     (synopsis
@@ -29531,7 +29531,7 @@ the wayland protocol, client side.")
         ("rust-wayland-sys" ,rust-wayland-sys-0.21)
         ("rust-wayland-scanner" ,rust-wayland-scanner-0.21))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-tempfile" ,rust-tempfile-3))))))
 
 (define-public rust-wayland-commons-0.23
@@ -30786,7 +30786,7 @@ implementation that works everywhere, even WASM!")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
+       (("rust-byteorder" ,rust-byteorder-1)
         ("rust-datetime" ,rust-datetime-0.4))))
     (home-page "https://github.com/rust-datetime/zoneinfo-compiled/")
     (synopsis "Library for parsing compiled zoneinfo files")
