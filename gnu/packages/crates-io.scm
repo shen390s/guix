@@ -4285,7 +4285,7 @@ to @code{is_x86_feature_detected}.")
      "Library for retrieving and interacting with the crates.io index.")
     (license license:asl2.0)))
 
-(define-public rust-crc32fast-1.2
+(define-public rust-crc32fast-1
   (package
     (name "rust-crc32fast")
     (version "1.2.0")
@@ -7492,7 +7492,7 @@ cross platform API.")
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudflare-zlib-sys"
          ,rust-cloudflare-zlib-sys-0.2)
-        ("rust-crc32fast" ,rust-crc32fast-1.2)
+        ("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-libz-sys" ,rust-libz-sys-1)
@@ -10379,7 +10379,7 @@ standard printing of search results, similar to grep itself.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2))))
+       (("rust-crc32fast" ,rust-crc32fast-1))))
     (home-page "https://github.com/oyvindln/gzip-header")
     (synopsis "Decoding and encoding the header part of gzip files")
     (description
@@ -11352,7 +11352,7 @@ ignore files such as .gitignore against file paths.")
         ("rust-scoped-threadpool" ,rust-scoped-threadpool-0.1)
         ("rust-tiff" ,rust-tiff-0.5))
        #:cargo-development-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2)
+       (("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-criterion" ,rust-criterion-0.3)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-num-complex" ,rust-num-complex-0.3)
@@ -11391,7 +11391,7 @@ for the most common image formats.")
         ("rust-scoped-threadpool" ,rust-scoped-threadpool-0.1)
         ("rust-tiff" ,rust-tiff-0.3))
        #:cargo-development-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2)
+       (("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.9))))))
@@ -14232,7 +14232,7 @@ streaming API for miniz_oxide.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2)
+       (("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-miniz-oxide" ,rust-miniz-oxide-0.2))
        #:cargo-development-inputs
@@ -15854,7 +15854,7 @@ Foundation framework.")
         ("rust-parity-wasm" ,rust-parity-wasm-0.41)
         ("rust-uuid" ,rust-uuid-0.8)
         ("rust-flate2" ,rust-flate2-1.0)
-        ("rust-crc32fast" ,rust-crc32fast-1.2)
+        ("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-indexmap" ,rust-indexmap-1))))
     (home-page "https://github.com/gimli-rs/object")
     (synopsis "Unified interface for reading and writing object file formats")
@@ -18514,7 +18514,7 @@ both WASM and native applications")
      `(#:skip-build? #t
        #:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-crc32fast" ,rust-crc32fast-1.2)
+        ("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-deflate" ,rust-deflate-0.8)
         ("rust-miniz-oxide" ,rust-miniz-oxide-0.3))
        #:cargo-development-inputs
@@ -18549,7 +18549,7 @@ both WASM and native applications")
      `(#:skip-build? #t
        #:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-crc32fast" ,rust-crc32fast-1.2)
+        ("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-deflate" ,rust-deflate-0.7)
         ("rust-inflate" ,rust-inflate-0.4))
        #:cargo-development-inputs
@@ -30755,8 +30755,8 @@ implementation that works everywhere, even WASM!")
     (arguments
      `(#:cargo-inputs
        (("rust-bzip2" ,rust-bzip2-0.3)
-        ("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-flate2" ,rust-flate2-1.0)
+        ("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-podio" ,rust-podio-0.1)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
