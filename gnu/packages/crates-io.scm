@@ -688,7 +688,7 @@ text or blue underlined text, on ANSI terminals.")
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-model" ,rust-model-0.1)
         ("rust-num-cpus" ,rust-num-cpus-1)
-        ("rust-once-cell" ,rust-once-cell-1.2)
+        ("rust-once-cell" ,rust-once-cell-1)
         ("rust-proptest" ,rust-proptest-0.8)
         ("rust-version-sync" ,rust-version-sync-0.8))))
     (home-page "https://github.com/vorner/arc-swap")
@@ -6319,7 +6319,7 @@ floating-point primitives to an @code{io::Write}.")
      `(#:skip-build? #t
        #:cargo-inputs
        (("rust-libc" ,rust-libc-0.2)
-        ("rust-once-cell" ,rust-once-cell-1.2)
+        ("rust-once-cell" ,rust-once-cell-1)
         ("rust-os-pipe" ,rust-os-pipe-0.8)
         ("rust-shared-child" ,rust-shared-child-0.3))
        #:cargo-development-inputs
@@ -16012,7 +16012,7 @@ You probably don't want to link to this crate directly; instead check out the
 @code{onig} crate.")
     (license license:expat)))
 
-(define-public rust-once-cell-1.2
+(define-public rust-once-cell-1
   (package
     (name "rust-once-cell")
     (version "1.2.0")
@@ -16042,7 +16042,7 @@ You probably don't want to link to this crate directly; instead check out the
 
 (define-public rust-once-cell-0.1
   (package
-    (inherit rust-once-cell-1.2)
+    (inherit rust-once-cell-1)
     (name "rust-once-cell")
     (version "0.1.8")
     (source
