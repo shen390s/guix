@@ -8660,7 +8660,7 @@ library.")
        (("rust-byteorder" ,rust-byteorder-1))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv-1)
-        ("rust-seahash" ,rust-seahash-3.0))))
+        ("rust-seahash" ,rust-seahash-3))))
     (home-page "https://github.com/cbreeden/fxhash")
     (synopsis "Hashing algorithm from hasher used in FireFox and Rustc")
     (description
@@ -10956,7 +10956,7 @@ Hash-based Message Authentication Code}.")
         ("rust-indexmap" ,rust-indexmap-1)
         ("rust-quickcheck" ,rust-quickcheck-0.9)
         ("rust-rand" ,rust-rand-0.7)
-        ("rust-seahash" ,rust-seahash-3.0)
+        ("rust-seahash" ,rust-seahash-3)
         ("rust-serde" ,rust-serde-1)
         ("rust-serde-json" ,rust-serde-json-1))))
     (home-page "https://github.com/hyperium/http")
@@ -10987,7 +10987,7 @@ requests and responses.")
        (("rust-indexmap" ,rust-indexmap-1)
         ("rust-quickcheck" ,rust-quickcheck-0.6)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-seahash" ,rust-seahash-3.0)
+        ("rust-seahash" ,rust-seahash-3)
         ("rust-serde" ,rust-serde-1)
         ("rust-serde-json" ,rust-serde-json-1))))))
 
@@ -22829,7 +22829,7 @@ Pwrite traits from the scroll crate.")
        (("rust-cc" ,rust-cc-1))))))
 
 
-(define-public rust-seahash-3.0
+(define-public rust-seahash-3
   (package
     (name "rust-seahash")
     (version "3.0.7")
