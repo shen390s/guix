@@ -23317,7 +23317,7 @@ for the serde framework.")
 (define-public rust-serde-derive-1
   (package
     (name "rust-serde-derive")
-    (version "1.0.105")
+    (version "1.0.116")
     (source
       (origin
         (method url-fetch)
@@ -23325,7 +23325,7 @@ for the serde framework.")
         (file-name (string-append name "-" version ".crate"))
         (sha256
          (base32
-          "1y5gzwpy8yjv9pwh1js11vr18nfz4gg1g2kmyr6p58hvavy00pdc"))))
+          "1s4sbl32lk1afxryfax73clvq22lwzdgzljb7f3mgr6q1wvscc7n"))))
     (build-system cargo-build-system)
     (arguments
      `(#:skip-build? #t
