@@ -4602,7 +4602,7 @@ to @code{is_x86_feature_detected}.")
         ("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-maybe-uninit" ,rust-maybe-uninit-2.0)
         ("rust-memoffset" ,rust-memoffset-0.5)
-        ("rust-scopeguard" ,rust-scopeguard-1.0))
+        ("rust-scopeguard" ,rust-scopeguard-1))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.6))))
     (home-page
@@ -4632,7 +4632,7 @@ to @code{is_x86_feature_detected}.")
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-memoffset" ,rust-memoffset-0.5)
-        ("rust-scopeguard" ,rust-scopeguard-1.0))
+        ("rust-scopeguard" ,rust-scopeguard-1))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.6))))))
 
@@ -13159,7 +13159,7 @@ by inspecting the system for user preference.")
     (arguments
      `(#:cargo-inputs
        (("rust-owning-ref" ,rust-owning-ref-0.4)
-        ("rust-scopeguard" ,rust-scopeguard-1.0)
+        ("rust-scopeguard" ,rust-scopeguard-1)
         ("rust-serde" ,rust-serde-1))))
     (home-page "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -22584,7 +22584,7 @@ library's old @code{scoped_thread_local!} macro for providing scoped access to
          (base32
           "0a2bn9d2mb07c6l16sadijy4p540g498zddfxyiq4rsqpwrglbrk"))))))
 
-(define-public rust-scopeguard-1.0
+(define-public rust-scopeguard-1
   (package
     (name "rust-scopeguard")
     (version "1.0.0")
@@ -22610,7 +22610,7 @@ with one of the implemented strategies.")
 
 (define-public rust-scopeguard-0.3
   (package
-    (inherit rust-scopeguard-1.0)
+    (inherit rust-scopeguard-1)
     (name "rust-scopeguard")
     (version "0.3.3")
     (source
