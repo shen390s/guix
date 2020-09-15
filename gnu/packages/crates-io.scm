@@ -5442,7 +5442,7 @@ and arithmetic.")
        (("rust-adler32" ,rust-adler32-1)
         ("rust-byteorder" ,rust-byteorder-1)
         ("rust-gzip-header" ,rust-gzip-header-0.3)
-        ("rust-flate2" ,rust-flate2-1.0))))))
+        ("rust-flate2" ,rust-flate2-1))))))
 
 (define-public rust-defmac-0.2
   (package
@@ -7472,7 +7472,7 @@ cross platform API.")
      "A procedural macro to insert @code{flame::start_guard(_)} calls.")
     (license license:asl2.0)))
 
-(define-public rust-flate2-1.0
+(define-public rust-flate2-1
   (package
     (name "rust-flate2")
     (version "1.0.14")
@@ -15853,7 +15853,7 @@ Foundation framework.")
         ("rust-scroll" ,rust-scroll-0.10)
         ("rust-parity-wasm" ,rust-parity-wasm-0.41)
         ("rust-uuid" ,rust-uuid-0.8)
-        ("rust-flate2" ,rust-flate2-1.0)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-crc32fast" ,rust-crc32fast-1)
         ("rust-indexmap" ,rust-indexmap-1))))
     (home-page "https://github.com/gimli-rs/object")
@@ -15879,7 +15879,7 @@ writing object file formats.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-       (("rust-flate2" ,rust-flate2-1.0)
+       (("rust-flate2" ,rust-flate2-1)
         ("rust-goblin" ,rust-goblin-0.0)
         ("rust-parity-wasm" ,rust-parity-wasm-0.40)
         ("rust-scroll" ,rust-scroll-0.9)
@@ -25496,8 +25496,8 @@ cryptographic implementations.")
         ("rust-quote" ,rust-quote-1))
        #:cargo-development-inputs
        (("rust-anyhow" ,rust-anyhow-1.0)
-        ("rust-flate2" ,rust-flate2-1.0)
         ;("rust-insta" ,rust-insta-0.12)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-rayon" ,rust-rayon-1)
         ("rust-ref-cast" ,rust-ref-cast-1.0)
         ("rust-regex" ,rust-regex-1)
@@ -25727,7 +25727,7 @@ cryptographic implementations.")
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-serde" ,rust-serde-1)
         ("rust-serde-derive" ,rust-serde-derive-1)
-        ("rust-flate2" ,rust-flate2-1.0)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-serde-json" ,rust-serde-json-1)
         ("rust-fnv" ,rust-fnv-1)
         ("rust-bitflags" ,rust-bitflags-1)
@@ -26923,7 +26923,7 @@ backed applications.")
         ("rust-tokio-uds" ,rust-tokio-uds-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.5)
-        ("rust-flate2" ,rust-flate2-1.0)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http-0.1)
         ("rust-httparse" ,rust-httparse-1.3)
@@ -27021,7 +27021,7 @@ backed applications.")
         ("rust-tokio-timer" ,rust-tokio-timer-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.4)
-        ("rust-flate2" ,rust-flate2-1.0)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http-0.1)
         ("rust-httparse" ,rust-httparse-1.3)
@@ -30755,8 +30755,8 @@ implementation that works everywhere, even WASM!")
     (arguments
      `(#:cargo-inputs
        (("rust-bzip2" ,rust-bzip2-0.3)
-        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-crc32fast" ,rust-crc32fast-1)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-podio" ,rust-podio-0.1)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
