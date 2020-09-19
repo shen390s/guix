@@ -1570,6 +1570,7 @@ dist_patch_DATA =						\
   %D%/packages/patches/sharutils-CVE-2018-1000097.patch		\
   %D%/packages/patches/shadow-hurd-pctrl.patch			\
   %D%/packages/patches/shishi-fix-libgcrypt-detection.patch	\
+  %D%/packages/patches/slic3r-gcc-8.patch			\
   %D%/packages/patches/slim-session.patch			\
   %D%/packages/patches/slim-config.patch			\
   %D%/packages/patches/slim-sigusr1.patch			\

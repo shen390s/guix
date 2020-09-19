@@ -1,6 +1,6 @@
 ;;; GNU Guix --- Functional package management for GNU
 ;;; Copyright © 2012, 2013, 2014, 2015, 2016, 2017 Ludovic Courtès <ludo@gnu.org>
-;;; Copyright © 2013, 2019 Andreas Enge <andreas@enge.fr>
+;;; Copyright © 2013, 2019, 2020 Andreas Enge <andreas@enge.fr>
 ;;; Copyright © 2015, 2016, 2017, 2019 Ricardo Wurmus <rekado@elephly.net>
 ;;; Copyright © 2015, 2016, 2017, 2019, 2020 Eric Bavier <bavier@posteo.net>
 ;;; Copyright © 2015 Eric Dvorsak <eric@dvorsak.fr>
@@ -74,7 +74,8 @@
   #:use-module (gnu packages sdl)
   #:use-module (gnu packages textutils)
   #:use-module (gnu packages video)
-  #:use-module (gnu packages web))
+  #:use-module (gnu packages web)
+  #:use-module (gnu packages xorg))
 
 ;;;
 ;;; Please: Try to add new module packages in alphabetic order.
@@ -11387,3 +11388,45 @@ regexp patterns in modules.")
     (description "Data::SExpression parses Lisp S-Expressions into Perl data
 structures.")
     (license license:perl-license)))
+
+(define-public perl-opengl
+  (package
+    (name "perl-opengl")
+    (version "0.70")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (string-append
+               "mirror://cpan/authors/id/C/CH/CHM/OpenGL-"
+               version
+               ".tar.gz"))
+        (sha256
+          (base32
+            "1q3lz168q081iwl9jg21fbzhp9la79gav9mv6nmh2jab83s2l3mj"))))
+    (build-system perl-build-system)
+    (inputs `(("mesa" ,mesa) ; TODO: needed?
+              ("glu" ,glu) ; TODO: needed?
+              ("freeglut" ,freeglut) ; TODO: needed?
+              ("libxi" ,libxi)
+              ("libxmu" ,libxmu)))
+    (arguments
+     '(#:phases
+       (modify-phases %standard-phases
+         (add-before 'configure 'patch-makefile
+           (lambda* (#:key inputs #:allow-other-keys)
+             (substitute* "utils/Makefile"
+               ;(("^CC=cc") "CC=gcc")
+               ;(("^LINK=cc") "LINK=gcc")
+               ;; Drop building utils/glversion.txt, since it requires a
+               ;; running X server and tests the graphics card present in
+               ;; the build system. Nix has a similar approach, but seems
+               ;; to check in an additional text file
+               ;; perl-opengl-gl-extensions.txt; where will this be needed?
+               (("^all: glversion.txt") "all:"))
+             #t)))))
+    (home-page "https://metacpan.org/release/OpenGL")
+    (synopsis
+      "Perl bindings to the OpenGL API, GLU, and GLUT/FreeGLUT")
+    (description "The package provides Perl bindings to OpenGL, GLU
+and FreeGLUT.")
+    (license (package-license perl))))
