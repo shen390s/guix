@@ -29,8 +29,10 @@
   #:use-module (guix packages)
   #:use-module (guix derivations)
   #:use-module (guix download)
+  #:use-module (guix git-download)
   #:use-module (guix utils)
   #:use-module (guix build-system gnu)
+  #:use-module (guix build-system node)
   #:use-module (gnu packages)
   #:use-module (gnu packages adns)
   #:use-module (gnu packages base)
@@ -232,6 +234,37 @@ devices.")
      (substitute-keyword-arguments (package-arguments node-semver)
        ((#:node _) node-bootstrap)))
     (properties '((hidden? #t)))))
+
+(define-public node-ms-bootstrap
+  (package
+    (name "node-ms")
+    (version "2.1.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/vercel/ms.git")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32
+         "1pjxzbi4j8pinlsc7yxvfrh0b47kb2dc4lfc2rjq4wx5bdwl33fj"))))
+    (build-system node-build-system)
+    (arguments
+     `(#:node ,node-bootstrap
+       #:tests? #f
+       #:phases
+       (modify-phases
+           %standard-phases
+         (delete 'configure)
+         (delete 'build))))
+    (home-page "https://github.com/zeit/ms#readme")
+    (properties '((hidden? . #t)))
+    (synopsis "Tiny millisecond conversion utility")
+    (description
+     "Use this package to easily convert various time formats to
+milliseconds.")
+    (license license:expat)))
 
 (define-public libnode
   (package
