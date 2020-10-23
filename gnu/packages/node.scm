@@ -39,6 +39,7 @@
   #:use-module (gnu packages icu4c)
   #:use-module (gnu packages libevent)
   #:use-module (gnu packages linux)
+  #:use-module (gnu packages node-xyz)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages python)
@@ -223,6 +224,14 @@ devices.")
 ;; depending on lltthp.
 (define-public node-bootstrap
   (hidden-package node-10.22))
+
+(define-public node-semver-bootstrap
+  (package
+    (inherit node-semver)
+    (arguments
+     (substitute-keyword-arguments (package-arguments node-semver)
+       ((#:node _) node-bootstrap)))
+    (properties '((hidden? #t)))))
 
 (define-public libnode
   (package
