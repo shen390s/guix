@@ -1542,14 +1542,14 @@ packages.")
 (define-public r-oligo
   (package
     (name "r-oligo")
-    (version "1.52.1")
+    (version "1.54.0")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "oligo" version))
        (sha256
         (base32
-         "1gpvr33pwzz1glzajcipvjcplb7yxvjj00q0ybqcc3wa47bhfkwd"))))
+         "1n3k0isz004br8ybq3qlzsp07p8md223x2d3305qyjckb33wb90k"))))
     (properties `((upstream-name . "oligo")))
     (build-system r-build-system)
     (inputs `(("zlib" ,zlib)))
