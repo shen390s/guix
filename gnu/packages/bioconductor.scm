@@ -2099,14 +2099,14 @@ parsing of genetic sequencing data from ribosome profiling experiments.")
 (define-public r-interactionset
   (package
     (name "r-interactionset")
-    (version "1.16.0")
+    (version "1.18.0")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "InteractionSet" version))
        (sha256
         (base32
-         "1nsivm9j0mzkfhwqsa2y9gxxdbaplg4z8vn5dfvls3nrihnqpk4v"))))
+         "14lp23b298wr3r7ggcfvas0xlf1866cpla0rv7dz589f50z6bj31"))))
     (properties
      `((upstream-name . "InteractionSet")))
     (build-system r-build-system)
