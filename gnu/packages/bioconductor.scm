@@ -8642,13 +8642,13 @@ libraries.")
 (define-public r-scater
   (package
     (name "r-scater")
-    (version "1.16.2")
+    (version "1.18.0")
     (source (origin
               (method url-fetch)
               (uri (bioconductor-uri "scater" version))
               (sha256
                (base32
-                "1pa5wvgjb30rw1vsjwbnn07ss3sc5n8ck5d7khdby4r2s9177s33"))))
+                "12dwfm3lpqxx93a6hwlvyikzggbyr2p2bpavcd379p3h960mpdx5"))))
     (build-system r-build-system)
     (propagated-inputs
      `(("r-beachmat" ,r-beachmat)
