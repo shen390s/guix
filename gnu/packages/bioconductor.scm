@@ -3801,14 +3801,14 @@ data.")
 (define-public r-enrichplot
   (package
     (name "r-enrichplot")
-    (version "1.8.1")
+    (version "1.10.0")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "enrichplot" version))
        (sha256
         (base32
-         "01m3cp717ldfbz5w3yfywvjg6sfjzz7s3vlk7w268lmmcg6g6bz7"))))
+         "1m7xpxclb69jbqgvc6sij1p3pp4pdvva161c03nyhy6lgrnjlqxp"))))
     (build-system r-build-system)
     (propagated-inputs
      `(("r-annotationdbi" ,r-annotationdbi)
