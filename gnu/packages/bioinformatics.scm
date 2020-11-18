@@ -8164,6 +8164,7 @@ tab-delimited (tabix) files.")
        ("r-s4vectors" ,r-s4vectors)
        ("r-iranges" ,r-iranges)
        ("r-matrix" ,r-matrix)
+       ("r-matrixgenerics" ,r-matrixgenerics)
        ("r-matrixstats" ,r-matrixstats)))
     (native-inputs
      `(("r-knitr" ,r-knitr)))
