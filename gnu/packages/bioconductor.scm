@@ -1687,29 +1687,31 @@ signal in the input, that lead to spurious peaks during peak calling.")
 (define-public r-diffbind
   (package
     (name "r-diffbind")
-    (version "3.0.0")
+    (version "3.0.6")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "DiffBind" version))
        (sha256
         (base32
-         "0dd5hyc5ky3znli1q1y4c7bzkc00b2zxdmgxk2qm8xm1zar637rr"))))
+         "09y309mxnw5li1c1wkz02isvx8pfgvb9aafmrl6l35fcx1rsiqwz"))))
     (properties `((upstream-name . "DiffBind")))
     (build-system r-build-system)
     (inputs
      `(("zlib" ,zlib)))
     (propagated-inputs
      `(("r-amap" ,r-amap)
+       ("r-apeglm" ,r-apeglm)
+       ("r-ashr" ,r-ashr)
        ("r-biocparallel" ,r-biocparallel)
        ("r-deseq2" ,r-deseq2)
        ("r-dplyr" ,r-dplyr)
-       ("r-edger" ,r-edger)
        ("r-genomicalignments" ,r-genomicalignments)
        ("r-genomicranges" ,r-genomicranges)
        ("r-ggplot2" ,r-ggplot2)
        ("r-ggrepel" ,r-ggrepel)
        ("r-gplots" ,r-gplots)
+       ("r-greylistchip" ,r-greylistchip)
        ("r-iranges" ,r-iranges)
        ("r-lattice" ,r-lattice)
        ("r-limma" ,r-limma)
