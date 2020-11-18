@@ -10119,25 +10119,30 @@ provide added flexibility for data combination and manipulation.")
 (define-public r-complexheatmap
   (package
     (name "r-complexheatmap")
-    (version "2.6.0")
+    (version "2.6.2")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "ComplexHeatmap" version))
        (sha256
         (base32
-         "0rmiwh4cr4m5p21cw8ym0j230qngda0g677mqwqkmmf8hlyqwbcd"))))
+         "1nx1xxpq8zrvi990v9fmvx3msl85pdz5dp1gp6m78q6i4s2alg5x"))))
     (properties
      `((upstream-name . "ComplexHeatmap")))
     (build-system r-build-system)
     (propagated-inputs
-     `(("r-circlize" ,r-circlize)
+     `(("r-cairo" ,r-cairo)
+       ("r-circlize" ,r-circlize)
        ("r-clue" ,r-clue)
        ("r-colorspace" ,r-colorspace)
+       ("r-digest" ,r-digest)
        ("r-getoptlong" ,r-getoptlong)
        ("r-globaloptions" ,r-globaloptions)
+       ("r-iranges" ,r-iranges)
+       ("r-matrixstats" ,r-matrixstats)
        ("r-png" ,r-png)
-       ("r-rcolorbrewer" ,r-rcolorbrewer)))
+       ("r-rcolorbrewer" ,r-rcolorbrewer)
+       ("r-s4vectors" ,r-s4vectors)))
     (native-inputs
      `(("r-knitr" ,r-knitr)))
     (home-page
