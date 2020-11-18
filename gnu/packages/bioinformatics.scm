@@ -8807,33 +8807,40 @@ library implementing most of the pipeline's features.")
 (define-public r-mutationalpatterns
   (package
     (name "r-mutationalpatterns")
-    (version "3.0.0")
+    (version "3.0.1")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "MutationalPatterns" version))
        (sha256
         (base32
-         "127mq4fkarvvsbaacqr3k429l5x74lmjdh4z4rnifkc18xrmkp8h"))))
+         "1988kjjgq8af0hj7chhpxi88717wwmzs9qgrwapjh0hm2hjwhn35"))))
     (build-system r-build-system)
+    (native-inputs
+     `(("r-knitr" ,r-knitr)))
     (propagated-inputs
      `(("r-biocgenerics" ,r-biocgenerics)
        ("r-biostrings" ,r-biostrings)
        ;; These two packages are suggested packages
+       ("r-bsgenome" ,r-bsgenome)
        ("r-bsgenome-hsapiens-1000g" ,r-bsgenome-hsapiens-1000genomes-hs37d5)
        ("r-bsgenome-hsapiens-ucsc-hg19" ,r-bsgenome-hsapiens-ucsc-hg19)
-       ("r-genomicranges" ,r-genomicranges)
+       ("r-cowplot" ,r-cowplot)
+       ("r-dplyr" ,r-dplyr)
        ("r-genomeinfodb" ,r-genomeinfodb)
+       ("r-genomicranges" ,r-genomicranges)
+       ("r-ggalluvial" ,r-ggalluvial)
+       ("r-ggdendro" ,r-ggdendro)
        ("r-ggplot2" ,r-ggplot2)
        ("r-iranges" ,r-iranges)
+       ("r-magrittr" ,r-magrittr)
        ("r-nmf" ,r-nmf)
-       ("r-plyr" ,r-plyr)
        ("r-pracma" ,r-pracma)
-       ("r-reshape2" ,r-reshape2)
-       ("r-cowplot" ,r-cowplot)
-       ("r-ggdendro" ,r-ggdendro)
+       ("r-purrr" ,r-purrr)
        ("r-s4vectors" ,r-s4vectors)
-       ("r-summarizedexperiment" ,r-summarizedexperiment)
+       ("r-stringr" ,r-stringr)
+       ("r-tibble" ,r-tibble)
+       ("r-tidyr" ,r-tidyr)
        ("r-variantannotation" ,r-variantannotation)))
     (home-page "https://bioconductor.org/packages/MutationalPatterns/")
     (synopsis "Extract and visualize mutational patterns in genomic data")
