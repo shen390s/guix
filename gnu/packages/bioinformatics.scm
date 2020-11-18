@@ -8364,13 +8364,13 @@ information about the latest version of the Gene Ontologies.")
 (define-public r-topgo
   (package
     (name "r-topgo")
-    (version "2.41.0")
+    (version "2.42.0")
     (source (origin
               (method url-fetch)
               (uri (bioconductor-uri "topGO" version))
               (sha256
                (base32
-                "1ks06q21qlyv50ynhvpkicp6603c4lr1yz1dzfi7frkwmjqg9k83"))))
+                "0vr3l9gvd3dhy446k3fkj6rm7z1abxi56rbnrs64297yzxaz1ngl"))))
     (properties
      `((upstream-name . "topGO")))
     (build-system r-build-system)
