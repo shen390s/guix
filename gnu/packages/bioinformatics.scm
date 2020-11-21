@@ -9543,14 +9543,14 @@ proteomics packages.")
 (define-public r-mzr
   (package
     (name "r-mzr")
-    (version "2.24.0")
+    (version "2.24.1")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "mzR" version))
        (sha256
         (base32
-         "1318gd9aljivf78wwbxbqr2yqi6jc3nfg46wjdji8gb44gksc41y"))
+         "0ik0yrjhvk8r5pm990chn2aadp0gqzzkkm0027682ky34xp142sg"))
        (modules '((guix build utils)))
        (snippet
         '(begin
@@ -9577,7 +9577,7 @@ proteomics packages.")
              #t)))))
     (inputs
      `(;; Our default boost package won't work here, unfortunately, even with
-       ;; mzR version 2.24.0.
+       ;; mzR version 2.24.1.
        ("boost" ,boost-for-mysql) ; use this instead of the bundled boost sources
        ("zlib" ,zlib)))
     (propagated-inputs
