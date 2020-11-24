@@ -7594,13 +7594,13 @@ BLAST, KEGG, GenBank, MEDLINE and GO.")
 (define-public r-biocviews
   (package
     (name "r-biocviews")
-    (version "1.58.0")
+    (version "1.58.1")
     (source (origin
               (method url-fetch)
               (uri (bioconductor-uri "biocViews" version))
               (sha256
                (base32
-                "0f0aa51h9x8n114zz6q6iw45d78i9wzl4ycbpiy0bdn23167pd84"))))
+                "1by2639z7n62z84dr8rj9jz12gsd1k8q42zsnxacxbwfwp6h0cl4"))))
     (properties
      `((upstream-name . "biocViews")))
     (build-system r-build-system)
@@ -8977,8 +8977,20 @@ HDF5 datasets.")
                (base32
                 "0almr1vscrgj5g4dyrags131wia2pmdbdidlpskbgm44ha6hpmqi"))))
     (build-system r-build-system)
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'fix-linking
+           (lambda _
+             (substitute* "src/Makevars"
+               ;; This is to avoid having a plain directory on the list of
+               ;; libraries to link.
+               (("\\(RHDF5_LIBS\\)" match)
+                (string-append match "/libhdf5.a")))
+             #t)))))
     (propagated-inputs
-     `(("r-rhdf5lib" ,r-rhdf5lib)))
+     `(("r-rhdf5lib" ,r-rhdf5lib)
+       ("r-rhdf5filters" ,r-rhdf5filters)))
     (inputs
      `(("zlib" ,zlib)))
     (native-inputs

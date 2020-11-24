@@ -4526,14 +4526,14 @@ position-specific scores within R and Bioconductor.")
 (define-public r-atacseqqc
   (package
     (name "r-atacseqqc")
-    (version "1.14.0")
+    (version "1.14.4")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "ATACseqQC" version))
        (sha256
         (base32
-         "10187875f1qrd9g9l0026n8l1d2759qry1qws863jcjqhqns7i27"))))
+         "04sn0zl4m60i5jvqz5rmhc4qwcgrhk6rhznrygmm93k9v363mbn9"))))
     (properties `((upstream-name . "ATACseqQC")))
     (build-system r-build-system)
     (propagated-inputs
@@ -5951,14 +5951,14 @@ annotations.")
 (define-public r-rsubread
   (package
     (name "r-rsubread")
-    (version "2.4.1")
+    (version "2.4.2")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "Rsubread" version))
        (sha256
         (base32
-         "1z4j7rv20giaszhbvla6cwqd4sgnlr6wm0g5bikgq4658cadyhpd"))))
+         "1wczrw5jb69x45hd3rdqqs9vkysdqwlxn9h3kjzn57r4x5q7jrra"))))
     (properties `((upstream-name . "Rsubread")))
     (build-system r-build-system)
     (inputs `(("zlib" ,zlib)))
@@ -6038,6 +6038,17 @@ cluster count and membership by stability evidence in unsupervised analysis.")
          "1wylzps7wbvm64k62w5bbi8l74gaqca96psfapxfg6mcac5yz4qw"))))
     (properties `((upstream-name . "cytolib")))
     (build-system r-build-system)
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'fix-linking
+           (lambda _
+             (substitute* "src/Makevars.in"
+               ;; This is to avoid having a plain directory on the list of
+               ;; libraries to link.
+               (("\\(RHDF5_LIBS\\)" match)
+                (string-append match "/libhdf5.a")))
+             #t)))))
     (inputs
      `(("zlib" ,zlib)))
     (native-inputs
@@ -6077,7 +6088,8 @@ interact with gated cytometry data.")
        ("r-matrixstats" ,r-matrixstats)
        ("r-rcpp" ,r-rcpp)
        ("r-rcpparmadillo" ,r-rcpparmadillo)
-       ("r-rprotobuflib" ,r-rprotobuflib)))
+       ("r-rprotobuflib" ,r-rprotobuflib)
+       ("r-s4vectors" ,r-s4vectors)))
     (native-inputs
      `(("r-knitr" ,r-knitr)))
     (home-page "https://bioconductor.org/packages/flowCore")
@@ -6126,6 +6138,17 @@ change point detection.")
          "1knqc3ic2vpck7n7m7adxjz3ac70ra89d5gvlgp9r2q3kgaciwac"))))
     (properties `((upstream-name . "ncdfFlow")))
     (build-system r-build-system)
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'fix-linking
+           (lambda _
+             (substitute* "src/Makevars"
+               ;; This is to avoid having a plain directory on the list of
+               ;; libraries to link.
+               (("\\(RHDF5_LIBS\\)" match)
+                (string-append match "/libhdf5.a")))
+             #t)))))
     (inputs
      `(("zlib" ,zlib)))
     (propagated-inputs
@@ -6418,14 +6441,14 @@ sequential way to mimic the manual gating strategy.")
 (define-public r-cytoml
   (package
     (name "r-cytoml")
-    (version "2.2.0")
+    (version "2.2.1")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "CytoML" version))
        (sha256
         (base32
-         "0m5d23nz15vrwb0bky4w1844jx2zhpljj2y8jbzd95hp54m74zlv"))))
+         "1d8x49aqc95x1vx456hya5r7mal80pj9l6wmr5x5pb5r8qyzz6yq"))))
     (properties `((upstream-name . "CytoML")))
     (build-system r-build-system)
     (inputs
@@ -8619,6 +8642,17 @@ provided.")
          "1hr149q03p09y1cjnx8av854j53041wfyq66xpsjw4mypzjf6f28"))))
     (properties `((upstream-name . "HDF5Array")))
     (build-system r-build-system)
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'fix-linking
+           (lambda _
+             (substitute* "src/Makevars"
+               ;; This is to avoid having a plain directory on the list of
+               ;; libraries to link.
+               (("\\(RHDF5LIB_LIBS\\)" match)
+                (string-append match "/libhdf5.a")))
+             #t)))))
     (inputs
      `(("zlib" ,zlib)))
     (propagated-inputs
@@ -8811,17 +8845,16 @@ of other packages.")
 (define-public r-scater
   (package
     (name "r-scater")
-    (version "1.18.0")
+    (version "1.18.3")
     (source (origin
               (method url-fetch)
               (uri (bioconductor-uri "scater" version))
               (sha256
                (base32
-                "12dwfm3lpqxx93a6hwlvyikzggbyr2p2bpavcd379p3h960mpdx5"))))
+                "14f7yw277nykxmcm7wlhlsf3nizpwzz24hax1icx73lavfxmc535"))))
     (build-system r-build-system)
     (propagated-inputs
-     `(("r-beachmat" ,r-beachmat)
-       ("r-biocgenerics" ,r-biocgenerics)
+     `(("r-biocgenerics" ,r-biocgenerics)
        ("r-biocneighbors" ,r-biocneighbors)
        ("r-biocparallel" ,r-biocparallel)
        ("r-biocsingular" ,r-biocsingular)
@@ -8829,10 +8862,11 @@ of other packages.")
        ("r-delayedmatrixstats" ,r-delayedmatrixstats)
        ("r-ggbeeswarm" ,r-ggbeeswarm)
        ("r-ggplot2" ,r-ggplot2)
+       ("r-gridextra" ,r-gridextra)
        ("r-matrix" ,r-matrix)
-       ("r-rcpp" ,r-rcpp)
        ("r-rlang" ,r-rlang)
        ("r-s4vectors" ,r-s4vectors)
+       ("r-scuttle" ,r-scuttle)
        ("r-singlecellexperiment" ,r-singlecellexperiment)
        ("r-summarizedexperiment" ,r-summarizedexperiment)
        ("r-viridis" ,r-viridis)))
@@ -8848,14 +8882,14 @@ quality control.")
 (define-public r-scran
   (package
     (name "r-scran")
-    (version "1.18.0")
+    (version "1.18.1")
     (source
      (origin
        (method url-fetch)
        (uri (bioconductor-uri "scran" version))
        (sha256
         (base32
-         "13ms1l2jx4vjwwmacqrxwnv334xryz7l9nk04mdcza6811izbwri"))))
+         "1zap12rm61z2hg6ykknbif478nr7g468v8mp50bj5hqgi69ywcww"))))
     (build-system r-build-system)
     (propagated-inputs
      `(("r-beachmat" ,r-beachmat)
@@ -8864,17 +8898,17 @@ quality control.")
        ("r-biocneighbors" ,r-biocneighbors)
        ("r-biocparallel" ,r-biocparallel)
        ("r-biocsingular" ,r-biocsingular)
+       ("r-bluster" ,r-bluster)
        ("r-delayedarray" ,r-delayedarray)
        ("r-delayedmatrixstats" ,r-delayedmatrixstats)
        ("r-dqrng" ,r-dqrng)
        ("r-edger" ,r-edger)
        ("r-igraph" ,r-igraph)
-       ("r-iranges" ,r-iranges)
        ("r-limma" ,r-limma)
        ("r-matrix" ,r-matrix)
        ("r-rcpp" ,r-rcpp)
        ("r-s4vectors" ,r-s4vectors)
-       ("r-scater" ,r-scater)
+       ("r-scuttle" ,r-scuttle)
        ("r-singlecellexperiment" ,r-singlecellexperiment)
        ("r-statmod" ,r-statmod)
        ("r-summarizedexperiment" ,r-summarizedexperiment)))
@@ -8937,7 +8971,8 @@ data in the column sparse format.")
        ("r-iranges" ,r-iranges)
        ("r-matrix" ,r-matrix)
        ("r-matrixstats" ,r-matrixstats)
-       ("r-s4vectors" ,r-s4vectors)))
+       ("r-s4vectors" ,r-s4vectors)
+       ("r-sparsematrixstats" ,r-sparsematrixstats)))
     (native-inputs
      `(("r-knitr" ,r-knitr)))
     (home-page "https://github.com/PeteHaitch/DelayedMatrixStats")
